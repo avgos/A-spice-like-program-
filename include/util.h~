@@ -1,0 +1,21 @@
+#ifndef UTIL_H
+#define UTIL_H
+#include "element_structs.h"
+
+void init_lists();
+int insert(char *stack[], int qlen, int ignore_line, int line_num);
+void print_resistor();
+void print_capacitor();
+void print_coil();
+void print_crnt();
+void print_vltg();
+void print_diode();
+void print_transistor_bjt();
+void print_transistor_mos();
+void set_analysis_type(int type);
+void set_itol(double itol);
+char * get_analysis_type_text(void);
+unsigned int get_analysis_type(void);
+plot_print * insert_plot_print(char *yytext);
+void fix_plot_print_list(void);
+#endif
