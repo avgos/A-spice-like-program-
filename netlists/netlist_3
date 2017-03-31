@@ -1,0 +1,8 @@
+
+R1 A 1 11
+
+R2 a 0 10
+*R3 11 a 7
+*C1 a b 8
+*D1 A a abc 10e-2
+*q10 a b10 11c1 ofaafj 10.10

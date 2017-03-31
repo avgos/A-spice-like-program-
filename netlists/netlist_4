@@ -1,0 +1,3 @@
+M1 5 0 4 0 mos_transistor L=4e+10 W=11e+10
+M2 5 0 4 0 mos_transistor L=410 W=1110
+M3 5 0 4 0 mos_transistor L=4.10 W=11.10

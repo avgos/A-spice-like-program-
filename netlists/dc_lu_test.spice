@@ -1,0 +1,28 @@
+* A little more complex netlist
+
+* Passive elements
+L1 node1 node2 0.1
+R1 node2 node3 10
+R2 node2 node4 10
+C1 node3 node4 0.5
+L2 node3 0     0.1
+R3 node3 0     10
+C2 node4 0     0.5
+R4 node4 0     10
+
+* Active elements - sources
+V1 node1 0     3 exp (3 5 1 0.2 2 0.5)
+*V2 node3 0     2
+*I1 0     node2 10
+*.tran 0.5 2.5
+* options
+*.options spd
+*.options iter
+.options method=be
+* required simulation
+.dc V1 0 2 0.01
+
+* simulation output
+.plot V(node1) V(node4)
+
+.end
