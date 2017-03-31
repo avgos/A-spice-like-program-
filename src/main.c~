@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "node_to_int.h"
+#include "util.h"
+#include "dc_analysis.h"
+#include "element_structs.h"
+//remove gcc warning
+extern int yylex(void);
+
+//int kathusterimeno_onoma(coil *co,voltage_source *vs){
+
+//}
+int main(int argc, char* argv[]){
+	init_lists();
+	init_hash();
+	yylex();
+	table_counter--;
+
+	if(init_analysis(table_counter, m2) == -1){
+		fprintf(stderr, "failed to init mna_construction m2: %d n:%d\n",m2,table_counter );
+		return -1;
+	}
+
+	printf("fix_plot_print_list\n");
+	fix_plot_print_list();
+	printf("mna_construction\n");
+	//set_analysis_type(2);
+	mna_construction();
+	printf_matrix();
+	gsl_permutation * p = mna_solver();
+	//dc_sweep_analysis(p);
+	
+	printf("++++++++++++++++++++++++++++++\n");
+	printf_matrix();
+
+	/*
+	printf("===============================================\n");
+	print_resistor();
+	print_capacitor();
+	print_coil();
+	print_crnt();
+	print_vltg();
+	print_diode();
+	print_transistor_bjt();
+	print_transistor_mos();
+	*/
+	printf("===============================================\n");
+	printf("get_analysis_type: %d %s\n",get_analysis_type(), get_analysis_type_text() );
+	return 0;
+}
